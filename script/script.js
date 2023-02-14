@@ -57,16 +57,6 @@ class AppData {
         this.showResult();
     }
 
-    // checkInputForValidString(inputElement) {
-    //     if (inputElement.value !== '') {
-    //         if (inputElement.value[inputElement.value.length - 1].match(/^[а-яА-Я., ]/)) {
-    //             inputElement.value = inputElement.value;
-    //         } else {
-    //             inputElement.value = inputElement.value.substr(0, inputElement.value.length - 1);
-    //         }
-    //     }
-    // }
-
     checkInputForNumber(inputElement) {
         if (inputElement.value !== '') {
             if (inputElement.value[inputElement.value.length - 1].match(/^[0-9]/)) {
@@ -342,9 +332,6 @@ class AppData {
             calculate.setAttribute('disabled', 'true');
             depositPercent.style.display = 'block';
             depositPercent.removeAttribute('disabled');
-            // if (inputSalaryAmount.value === '' || parseFloat(inputSalaryAmount.value) === 'NaN') {
-            //     calculate.setAttribute('disabled', 'true');
-            // }
 
             depositPercent.addEventListener('input', () => {
                 if (isNaN(depositPercent.value) || parseFloat(depositPercent.value) < 0 || parseFloat(depositPercent.value) > 100) {
@@ -380,23 +367,6 @@ class AppData {
     }
 
     eventListeners() {
-
-        // inputIncomeTitle[0].addEventListener('input', () => {
-        //     this.checkInputForValidString(inputIncomeTitle[0]);
-        // });
-
-        // inputAdditionalIncomeItem[0].addEventListener('input', () => {
-        //     this.checkInputForValidString(inputAdditionalIncomeItem[0]);
-        // });
-
-        // inputAdditionalIncomeItem[1].addEventListener('input', () => {
-        //     this.checkInputForValidString(inputAdditionalIncomeItem[1]);
-        // });
-
-        // inputExpensesTitle[0].addEventListener('input', () => {
-        //     this.checkInputForValidString(inputExpensesTitle[0]);
-        // });
-
         inputIncomeAmount[0].addEventListener('input', () => {
             this.checkInputForNumber(inputIncomeAmount[0]);
         });
@@ -410,7 +380,6 @@ class AppData {
         });
 
         calculate.addEventListener('click', () => {
-            //appData.start.apply(appData);
             this.start();
             calculate.style.display = "none";
             cancel.style.display = "block";
